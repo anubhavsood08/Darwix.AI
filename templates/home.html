@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Darwix AI - API Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .endpoint {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        pre {
+            background-color: #f1f1f1;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Darwix AI - API Documentation</h1>
+    
+    <div class="endpoint">
+        <h2>1. Audio Transcription with Speaker Diarization</h2>
+        <p><strong>Endpoint:</strong> <code>/api/transcribe/</code></p>
+        <p><strong>Method:</strong> POST</p>
+        <p><strong>Authentication:</strong> Required</p>
+        
+        <h3>Request:</h3>
+        <pre>
+Content-Type: multipart/form-data
+Body:
+  - audio_file: Audio file (mp3, wav, etc.)</pre>
+
+        <h3>Response:</h3>
+        <pre>
+{
+    "language": "en-US",
+    "segments": [
+        {
+            "speaker": "SPEAKER_00",
+            "start": 0.0,
+            "end": 2.5,
+            "text": "Hello, this is speaker one."
+        }
+    ],
+    "complete_transcript": "Hello, this is speaker one."
+}</pre>
+    </div>
+
+    <div class="endpoint">
+        <h2>2. Blog Title Suggestions</h2>
+        <p><strong>Endpoint:</strong> <code>/api/suggest-titles/</code></p>
+        <p><strong>Method:</strong> POST</p>
+        <p><strong>Authentication:</strong> Required</p>
+
+        <h3>Request:</h3>
+        <pre>
+{
+    "content": "Your blog post content here...",
+    "num_suggestions": 3
+}</pre>
+
+        <h3>Response:</h3>
+        <pre>
+{
+    "suggestions": [
+        "10 Ways to Improve Your Blog Writing Skills",
+        "The Ultimate Guide to Effective Blogging",
+        "Mastering the Art of Blog Writing: A Comprehensive Guide"
+    ]
+}</pre>
+    </div>
+
+    <div class="endpoint">
+        <h2>Authentication</h2>
+        <p>All API endpoints require authentication. You can authenticate using:</p>
+        <ul>
+            <li>Session Authentication (for web browsers)</li>
+            <li>Basic Authentication (for API clients)</li>
+        </ul>
+        <p>To get started:</p>
+        <ol>
+            <li>Create an account through the admin interface (<code>/admin/</code>)</li>
+            <li>Use your credentials to authenticate API requests</li>
+        </ol>
+    </div>
+</body>
+</html> 
